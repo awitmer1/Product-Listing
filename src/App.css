@@ -1,0 +1,13 @@
+.header {
+    background-color: rgba(30, 143, 255, 0.575);
+    padding: 20px;
+}
+
+.footer {
+    background-color: rgba(105, 105, 105, 0.171);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    margin-top: 20rem;
+}
