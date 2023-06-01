@@ -1,21 +1,21 @@
-// import React, { useState } from 'react';
+import React from 'react';
+import './categoryselect.css'
 
-// const options = ['All Products', 'Home Decoration', 'Fragrances', 'Groceries', 'Skincare', 'Laptops', 'Smartphones']
 
-// const CategorySelect = (props) => {
+const CategorySelect = ({categories, selectedCategory, setSelectedCategory}) => {
 
-//     const [selected, setSelected] = useState(options[0])
-
-//     return ( 
-//         <div>
-//             <p>Filter by:</p>
-//             <select onChange={(e) => setSelected(e.target.value)}>
-//                 {options.map(option => {
-//                     <option value={option}>{option}</option>
-//                 })}
-//             </select>
-//         </div>
-//      );
-// }
+    return ( 
+        <div className='category'>
+            <p>Filter by:</p>
+            <select onChange={(e) => setSelectedCategory(e.target.value)}>
+                {categories.map((category) => {
+                    return (
+                        <option value={category}>{category}</option>
+                    )
+                })}
+            </select>
+        </div>
+     );
+}
  
-// export default CategorySelect;
+export default CategorySelect;

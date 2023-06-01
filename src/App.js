@@ -1,30 +1,38 @@
 import "./App.css";
 import CategorySelect from "./components/CategorySelect/CategorySelect";
 import Products from "./components/Products/Products";
-import Product from "./components/Product/Product";
 import data from "./data/data.json"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { processCategories } from "./utils";
 
 
 function App() {
+  
   console.log(data);
-  
-  // something about this part is incorrect - needs to be fixed //
-  // const [allProducts, setAllProducts] = useState(data)
 
-  const [displayProducts, setDisplayProducts] = useState(data)
+  const [displayProducts, setDisplayProducts] = useState(data.products);
+  const [selectedCategory, setSelectedCategory] = useState('')
 
-  const productsToSend = data.products
+  const categories = processCategories(data.products);
 
-  
+  //Category Filter//
+  useEffect (() => {
+    let filteredProducts = data.products;
 
+    if (selectedCategory) {
+      filteredProducts = filteredProducts.filter((product) => product.category.includes(selectedCategory));
+    }
+
+    setDisplayProducts(filteredProducts);
+  })
 
   return (
     <>
     <header className="header">
       <h1>Product Page</h1>
     </header>
-    <Products products={productsToSend}>
+    <CategorySelect categories={categories} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
+    <Products products={displayProducts}>
     </Products>
     <div className="footer">
       <h6>Created using React</h6>

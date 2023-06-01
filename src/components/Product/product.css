@@ -1,5 +1,5 @@
 .card {
-    border: 1px solid red;
+    border: 1px solid grey;
     max-width: 15rem;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
@@ -10,7 +10,25 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
 
+img {
+    max-width: 15rem;
+    max-height: 15rem;
+}
+
+h4 {
+    font-size: large;
+}
+
+h5 {
+    font-size: medium;
+}
+
+h6 {
+    font-size:small;
+    font-style:italic;
+    color: gray;
+}
+
 .card-container {
     padding: 2px 16px;
 }
-
