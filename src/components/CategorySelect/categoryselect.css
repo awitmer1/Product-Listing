@@ -1,6 +1,9 @@
 .category {
-    padding-left: 25rem;
-    padding-top: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5rem 20rem 0rem 20rem;
+    align-items: flex-end;
 }
 
 .category p {

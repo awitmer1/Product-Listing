@@ -1,12 +1,14 @@
 import React from 'react';
 import './categoryselect.css'
+import SortToggle from '../SortToggle/SortToggle';
 
 
-const CategorySelect = ({categories, selectedCategory, setSelectedCategory}) => {
+const CategorySelect = ({categories, selectedCategory, setSelectedCategory, setAlphabetize}) => {
 
     return ( 
         <div className='category'>
-            <p>Filter by:</p>
+            <div>
+                <p>Filter by:</p>
             <select onChange={(e) => setSelectedCategory(e.target.value)}>
                 {categories.map((category) => {
                     return (
@@ -14,6 +16,8 @@ const CategorySelect = ({categories, selectedCategory, setSelectedCategory}) => 
                     )
                 })}
             </select>
+            </div>            
+            <SortToggle setAlphabetize={setAlphabetize}/>
         </div>
      );
 }
