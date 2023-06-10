@@ -21,10 +21,15 @@ function App() {
     if (selectedCategory) {
       filteredProducts = filteredProducts.filter((product) => product.category.includes(selectedCategory));
     }
+
+    filteredProducts.sort((a, b) => {
+      if (a.title < b.title){return -1;}
+      if (a.title > b.title){return 1;}
+      return 0;})
     
     setDisplayProducts(filteredProducts);
     
- });
+ }, [selectedCategory]);
 
   //Alphabetize Filter//
   useEffect (() => {
@@ -40,13 +45,16 @@ function App() {
     
       
     if (alphabetize === 'a-z') {
-      setDisplayProducts(alphabetizeProducts);      
+      setDisplayProducts(alphabetizeProducts); 
+      console.log(alphabetizeProducts)     
     } else {
       if (alphabetize === 'z-a') {
         alphabetizeProducts.reverse();
         setDisplayProducts(alphabetizeProducts);
+        console.log(alphabetizeProducts);     
       }}
-    }); 
+    }, [alphabetize]); 
+
 
   return (
     <>

@@ -9,11 +9,11 @@ const SortToggle = ({setAlphabetize}) => {
     function handleClick() {
         if(buttonAZ === 'a-z'){
             setButtonAZ('z-a');
-            setButtonText('Reverse Alphabetically (Z-A)');
+            setButtonText('Sort Alphabetically (A-Z)');
             setAlphabetize('z-a');
         } else {
             setButtonAZ('a-z');
-            setButtonText('Sort Alphabetically (A-Z)');
+            setButtonText('Reverse Alphabetically (Z-A)');
             setAlphabetize('a-z');
         }
       
