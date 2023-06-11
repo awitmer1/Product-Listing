@@ -1,8 +1,12 @@
 import './product.css';
+import StarRating from '../StarRating/StarRating';
+
 
 const Product = ({products}) => {
 
     const productCard = products.map((product) => {
+        
+        let productRating = product.rating;
 
         return (
             <div className="card">
@@ -13,9 +17,9 @@ const Product = ({products}) => {
                     <h5>{product.brand}</h5>
                     <p>Category: {product.category}</p><br></br>
                     <p>Price: {product.price}</p>
-                    <p>Discount %: {product.discountPercentage}</p>
                     <p>Stock Remaining: {product.stock}</p>
                     <p>Rating: {product.rating}</p>
+                    <StarRating productRating={productRating}/>
                 </div>
             </div>
         )
