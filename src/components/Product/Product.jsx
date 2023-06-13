@@ -9,7 +9,7 @@ const Product = ({products}) => {
         let productRating = product.rating;
 
         return (
-            <div className="card">
+            <div key={product.id} className="card">
                 <img src={product.images[0]}></img>
                 <div className="card-container">
                     <h4>{product.title}</h4>

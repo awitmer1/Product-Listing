@@ -29,6 +29,12 @@ h6 {
     color: gray;
 }
 
+
+span {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
 .card-container {
     padding: 2px 16px;
 }

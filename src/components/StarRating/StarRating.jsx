@@ -1,6 +1,7 @@
 import {BsStarFill} from 'react-icons/bs'
 import {BsStar} from 'react-icons/bs'
 import {BsStarHalf} from 'react-icons/bs'
+import { IconContext } from "react-icons";
 
 const StarRating = ({productRating}) => {
     
@@ -11,24 +12,25 @@ const StarRating = ({productRating}) => {
         let output = [];
       
         // Append all the filled whole stars
-        for (var i = rating; i >= 1; i--)
-          output.push(<BsStarFill />);
+        for (let i = rating; i >= 1; i--)
+            {output.push(<BsStarFill />);}
       
         // If there is a half a star, append it
-        if (i == .5) output.push(<BsStarHalf />);
+        if (rating % 1 !== 0) 
+            {output.push(<BsStarHalf />);}
       
         // Fill the empty stars
         for (let i = (5 - rating); i >= 1; i--)
-          output.push(<BsStar />);
+            {output.push(<BsStar />);}
       
-        return output.join('');
+        return output;
       }   
 
 
     return ( 
-        <>
-        <i><GetStars /></i>
-        </>
+        <IconContext.Provider value={{ color: "dodgerblue", size: "1.25em"}}>
+        <span>{GetStars(productRating)}</span>
+        </IconContext.Provider>
      );
 }
  

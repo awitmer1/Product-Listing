@@ -3,16 +3,16 @@ import './categoryselect.css'
 import SortToggle from '../SortToggle/SortToggle';
 
 
-const CategorySelect = ({categories, selectedCategory, setSelectedCategory, setAlphabetize}) => {
+const CategorySelect = ({categories, setSelectedCategory, setAlphabetize}) => {
 
     return ( 
         <div className='category'>
             <div>
                 <p>Filter by:</p>
-            <select onChange={(e) => setSelectedCategory(e.target.value)}>
+            <select onClick={(e) => setSelectedCategory(e.target.value)}>
                 {categories.map((category) => {
                     return (
-                        <option value={category}>{category}</option>
+                        <option key={category} value={category}>{category}</option>
                     )
                 })}
             </select>

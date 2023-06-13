@@ -16,43 +16,48 @@ function App() {
 
   //Category Filter//
   useEffect (() => {
+
     let filteredProducts = data.products;
     
-    if (selectedCategory) {
-      filteredProducts = filteredProducts.filter((product) => product.category.includes(selectedCategory));
-    }
-
     filteredProducts.sort((a, b) => {
       if (a.title < b.title){return -1;}
       if (a.title > b.title){return 1;}
       return 0;})
-    
+
+    if (selectedCategory) {
+     filteredProducts = filteredProducts.filter((product) => product.category.includes(selectedCategory));
+    }
+
     setDisplayProducts(filteredProducts);
+
     
  }, [selectedCategory]);
 
   //Alphabetize Filter//
   useEffect (() => {
 
-    let convertLC = displayProducts;
-    let converted = convertLC.filter((product) => product.title.toLowerCase());    
-    let alphabetizeProducts = converted;
-
-    alphabetizeProducts.sort((a, b) => {
-      if (a.title < b.title){return -1;}
-      if (a.title > b.title){return 1;}
-      return 0;})
+    let alphabetizeProducts = [...displayProducts];
     
-      
+    // let convertLC = [...displayProducts];
+    // let converted = convertLC.filter((product) => product.title.toLowerCase());    
+    // let alphabetizeProducts = converted;
+   
+    
     if (alphabetize === 'a-z') {
+      
+      alphabetizeProducts.sort((a, b) => {
+        const titleA = a.title.toLowerCase();
+        const titleB = b.title.toLowerCase();
+  
+        if (titleA < titleB){return -1;}
+        if (titleA > titleB){return 1;}
+        return 0;}
+      )} else if (alphabetize === 'z-a') {
+        alphabetizeProducts.reverse();     
+      }
+      
       setDisplayProducts(alphabetizeProducts); 
-      console.log(alphabetizeProducts)     
-    } else {
-      if (alphabetize === 'z-a') {
-        alphabetizeProducts.reverse();
-        setDisplayProducts(alphabetizeProducts);
-        console.log(alphabetizeProducts);     
-      }}
+
     }, [alphabetize]); 
 
 
