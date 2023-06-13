@@ -11,8 +11,9 @@
   }
 
 img {
+    display: block;
+    margin: auto;
     max-width: 15rem;
-    max-height: 15rem;
 }
 
 h4 {
@@ -34,6 +35,10 @@ span {
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
+}
+
+svg {
+    padding: 5px;
 }
 .card-container {
     padding: 2px 16px;

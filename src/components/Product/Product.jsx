@@ -8,6 +8,14 @@ const Product = ({products}) => {
         
         let productRating = product.rating;
 
+        function stockColor(stock) {
+            if (stock <= 20){
+                return (<p style={{color:"red"}}>Stock Remaining: {stock}</p>)
+            } else {
+                return (<p>Stock Remaining: {stock}</p>)
+            }
+        }
+        
         return (
             <div key={product.id} className="card">
                 <img src={product.images[0]}></img>
@@ -17,8 +25,7 @@ const Product = ({products}) => {
                     <h5>{product.brand}</h5>
                     <p>Category: {product.category}</p><br></br>
                     <p>Price: {product.price}</p>
-                    <p>Stock Remaining: {product.stock}</p>
-                    <p>Rating: {product.rating}</p>
+                    {stockColor(product.stock)}
                     <StarRating productRating={productRating}/>
                 </div>
             </div>
